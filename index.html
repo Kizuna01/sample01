@@ -636,7 +636,7 @@
                     $("#username_uni").html("格式正確");
                     $.ajax({
                         type: "POST",
-                        url: "api/reg_check_uni.php",
+                        url: "https://ms0728707.000webhostapp.com/sample01/api/reg_check_uni.php",
                         data: { username: $("#username").val() },
                         dataType: "JSON",
                         success: showdata_check_uni,
@@ -735,7 +735,7 @@
                     $.ajax({
                         type: "POST",
                         dataType: "json",
-                        url: "api/reg_api.php",
+                        url: "https://ms0728707.000webhostapp.com/sample01/api/reg_api.php",
                         data: {
                             username: $("#username").val(),
                             password: $("#password").val(),
@@ -806,7 +806,7 @@
             //商品渲染
             $.ajax({
                 type: "get",
-                url: "api/product_r_api.php",
+                url: "https://ms0728707.000webhostapp.com/sample01/api/product_r_api.php",
                 dataType: "json",
                 async: false,
                 success: showProduct,
