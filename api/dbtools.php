@@ -1,6 +1,8 @@
 <?php
+header("Access-Control-Allow-Origin: https://kizuna01.github.io");
+$dbname = "id21313266_sample01";
     function create_connect(){
-        $link=mysqli_connect("localhost","owner01","123456")or die("連線失敗".mysqli_connect_error());
+        $link=mysqli_connect("localhost","id21313266_owner01","@Fbid8361")or die("連線失敗".mysqli_connect_error());
         return $link;
     }
 

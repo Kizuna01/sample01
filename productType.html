@@ -20,7 +20,7 @@
     <section id="section10">
         <nav class="navbar navbar-expand-lg bg-body-tertiary  ">
             <div class="container-fluid">
-                <a class="navbar-brand " href="onePage.html">首頁</a>
+                <a class="navbar-brand " href="index.html">首頁</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -190,7 +190,7 @@
                 });
             } else {
                 alert("請先登入");
-                location.href = "onePage.html";
+                location.href = "index.html";
             }
         })
         function showdata_check_uid(data){
@@ -393,7 +393,7 @@
         $("#logout").click(function () {
             alert("已登出");
             setCookie("uid01", " ", 7);
-            location.href = "onePage.html";
+            location.href = "index.html";
         });
 
 

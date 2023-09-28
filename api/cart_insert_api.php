@@ -1,7 +1,8 @@
 <?php
+header("Access-Control-Allow-Origin: https://kizuna01.github.io");
 require_once "dbtools.php";
 $link = create_connect();
-$dbname = "sample01";
+// $dbname = "sample01";
 
 if (isset($_POST['product_id']) && isset($_POST['name']) && isset($_POST['price']) && isset($_POST['num']) && isset($_POST['member_id']) &&  isset($_POST['pay'])) {
     $p_productId=$_POST['product_id'];

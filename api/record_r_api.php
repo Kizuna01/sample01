@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin: https://kizuna01.github.io");
 if (isset($_POST["member_id"])) {
     if ($_POST["member_id"] != "") {
         $p_member_id = $_POST["member_id"];
@@ -7,7 +8,7 @@ if (isset($_POST["member_id"])) {
         $conn = create_connect();
         $sql = "SELECT * FROM cart WHERE Member_id = '$p_member_id'";
         
-        $result = execute_sql($conn, 'sample01', $sql);
+        $result = execute_sql($conn, $dbname, $sql);
 
         if (mysqli_num_rows($result) > 0) {
             $mydata = array();

@@ -1,8 +1,8 @@
 <?php
-
+header("Access-Control-Allow-Origin: https://kizuna01.github.io");
 require_once "dbtools.php";
 $conn = create_connect();
-$dbname = "sample01";
+// $dbname = "sample01";
 
 
 

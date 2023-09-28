@@ -88,7 +88,7 @@
                                 <ul class="navbar-nav mb-lg-0 ">
 
                                     <li class="nav-item">
-                                        <a class="nav-link " aria-current="page" href="onePage.html">首頁</a>
+                                        <a class="nav-link " aria-current="page" href="index.html">首頁</a>
                                     </li>
 
                                     <li class="nav-item">
@@ -190,7 +190,7 @@
                     <th>消費時間</th>
                 </tr>
             </thead>
-            <tbody id="record">
+            <tbody id="record" class="d-none">
                 <tr>
                     <td data-th="商品序號"><span class="table-col">001</span></td>
                     <td data-th="商品名稱"><span class="table-col">XXX</span></td>
@@ -284,7 +284,7 @@
                 });
             } else {
                 alert("請先登入會員");
-                location.href = "onePage.html";
+                location.href = "index.html";
             }
         });
 
@@ -351,6 +351,7 @@
                        
                             };
                             $("#total").text('累計消費:$' + total);
+                            $("#record").removeClass("d-none");
                         } else {
                             var str = '<tr><td colspan="5" class="text-center">尚無紀錄</td></tr>';
                             $("#record").append(str);
@@ -372,7 +373,7 @@
         $("#logout").click(function () {
             alert("已登出");
             setCookie("uid01", " ", 7);
-            location.href = "onePage.html";
+            location.href = "index.html";
         });
         /*
         $.ajax({
