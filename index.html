@@ -108,9 +108,10 @@
             padding: 0;
             width: 100%;
             height: 100vh;
-            background: linear-gradient(45deg, #b591e4, #5aa4e0, #b591e4, #5aa4e0);
+            /* background: linear-gradient(45deg, #b591e4, #5aa4e0, #b591e4, #5aa4e0); */
             background-size: 400% 400%;
-            animation: gradient 10s linear infinite;
+            /* animation: gradient 10s linear infinite; */
+            background-image: url(img/background.jpg);
         }
 
         .video {
@@ -262,10 +263,11 @@
     </section>
     <!-- s11 影片 -->
     <section id="s11">
-        <video autoplay loop muted class="video">
+        <!-- <video autoplay loop muted class="video">
 
-            <source src="img/The Dior Fall 2023 Campaign.mp4" type="">
-        </video>
+            <source src="img/product/video.mp4" type="">
+        </video> -->
+
     </section>
     <!--s20 carousel 幻燈片-->
     <section id="s20">
@@ -323,7 +325,7 @@
                     <h3 style="color: rgb(255, 255, 255);">We serve a variety of products; including juice, brand
                         merchandise. </h3>
                     <br>
-                    <h3 style="color: rgb(255, 255, 255);">Based on the rules, we </h3>
+                    <h3 style="color: rgb(255, 255, 255);">Based on the rules, we have the obligation to serve our customer the best shopping experiences</h3>
                 </div>
             </div>
         </div>
@@ -333,17 +335,17 @@
     <section id="s23">
         <div class="row">
             <div class="col-md-8"
-                style="background: linear-gradient(120deg, rgb(231, 202, 121), rgb(170, 127, 228)); height: 500px;  display: flex; align-items: center; ">
+                style="background: linear-gradient(120deg, rgb(104, 104, 104),rgba(0, 0, 0, 0.815)); height: 500px;  display: flex; align-items: center; ">
                 <div class="col-md-5">
                     <img src="img/white perfume.png" style="height: 700px; width:500px;" class="offset-3 " alt="">
                 </div>
                 <div class="col-md-3 offset-3" style="display: flex; align-items: center; justify-content: end;">
-                    <h1 class="ms-5">The New generation is coming</h1>
+                    <h1 class="ms-5" style="color: white;">The New generation is coming</h1>
 
                 </div>
             </div>
             <div class="col-md-4"
-                style="background: linear-gradient(120deg, rgb(208, 115, 99), rgb(222, 145, 68)); display: flex; align-items: center; justify-content: center;">
+                style="background: linear-gradient(160deg, rgba(177, 177, 177), rgb(66, 66, 66)); display: flex; align-items: center; justify-content: center;">
                 <img src="img/Group 41.png" alt="" style="height: 500px;">
             </div>
         </div>
@@ -757,7 +759,7 @@
                 alert("已登出");
                 setCookie("uid01", " ", 7);
 
-                location.href = "index.html";
+                location.href = "onePage.html";
             });
             //登入監聽
             //確認cookie是否有uid
@@ -786,11 +788,11 @@
                     //$("#navbar").empty();
                     var num=0;
                     data.data.forEach(function (item) {
-                        $("#s30").append('<h1 id="typeName' + num + '">' + item.Type + '</h1><div class="row" id="type' + num + '"></div>');
+                        $("#s30").append('<h1 class="text-light" id="typeName' + num + '">' + item.Type + '</h1><div class="row" id="type' + num + '"></div>');
                         typeId.push("#type" + num);//蒐集類別的ID type1、type2.... 渲染給 h1底下的每個商品的id
                         typeName.push("#typeName" + num);//typeName1、typeName2 渲染 s30底下的每個h1的id
 
-                        $("#navbar").append(' <li class="nav-item"><a class="nav-link active" aria-current="page" href="#typeName' + num + '">' + item.Type + '</a></li>');
+                        $("#navbar").append(' <li class="nav-item"><a class="nav-link active" aria-current="page" href="#type' + num + '">' + item.Type + '</a></li>');
                         num+=1;
                     });
 
