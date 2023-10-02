@@ -400,8 +400,10 @@
                         contentType: false,
                         processData: false,
                         success: function (data) {
-                            
-                            console.log(data.message);
+                            if(state){
+                                console.log(data.datainfo);
+                            }
+                    
                 
                             // alert(data.message);
                             // setCookie("type", data.datainfo.type);
@@ -468,7 +470,7 @@
                 },
                 cancel_edit(){
                     const vm = this;
-                    vm.edit_img="";
+                    vm.edit_img="123";
                 },  
                 //當type選單異動時，更改cookie內的type
                 set_cookie_type() {
