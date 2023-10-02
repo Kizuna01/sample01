@@ -395,8 +395,6 @@
                     formData.append('name',name);
                     formData.append('price',price);
                     formData.append('type',type);
-                    //console.log(vm.edit_img);
-                    console.log(formData['file']);
                     //傳至api
                     $.ajax({
                         type: "POST",
@@ -414,7 +412,7 @@
                             // location.href = "product_control.html";
                         },
                         error: function () {
-                            alert("error-api/product_u_api.php");
+                            alert("error-https://ms0728707.000webhostapp.com/sample01/api/product_u_api.php");
                         }
                     });
                     // const vm = this;
