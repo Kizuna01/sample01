@@ -396,7 +396,7 @@
                     formData.append('price',price);
                     formData.append('type',type);
                     //console.log(vm.edit_img);
-                    console.log(formData);
+                    console.log(formData['file']);
                     //傳至api
                     $.ajax({
                         type: "POST",
