@@ -411,9 +411,12 @@
                         processData: false,
                         success: function (data) {
                             alert(data.message);
+                            location.href="product_control.html";
+                            /*
                             $("#show_edit_img").addClass('d-none');
                             $("#original_img").removeClass("d-none");
                             $("#show_edit_img").attr('src', URL.createObjectURL(edit_img.files[0]));
+                            */
 
                         },
                         error: function () {
