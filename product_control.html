@@ -395,6 +395,8 @@
                     formData.append('name',name);
                     formData.append('price',price);
                     formData.append('type',type);
+                    console.log(vm.edit_img);
+                    console.log($("#edit_img").val());
                     //傳至api
                     $.ajax({
                         type: "POST",
@@ -472,7 +474,7 @@
                 },
                 cancel_edit(){
                     const vm = this;
-                    vm.edit_img="123";
+                    vm.edit_img="";
                 },  
                 //當type選單異動時，更改cookie內的type
                 set_cookie_type() {
