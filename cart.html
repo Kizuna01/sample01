@@ -373,7 +373,7 @@
                         $("#cart").empty();
                         if (data.state) {
                             for (i = 0; i < data.data.length; i++) {
-                                var str = '<tr><td>' + data.data[i].Name + '</td><td><img style="with:100px;height:100px" src="img/product/' + '/' + data.data[i].Img + '"></td><td>$' + data.data[i].Price + '</td><td>' + data.data[i].Num + '</td><td>' + data.data[i].Price * data.data[i].Num + '</td><td><a href="#" class="btn btn-danger" id="cancel" data-id="' + data.data[i].Id + '">取消</a></td></tr>';
+                                var str = '<tr><td>' + data.data[i].Name + '</td><td><img style="with:100px;height:100px" src="https://ms0728707.000webhostapp.com/sample01/img/product/' + '/' + data.data[i].Img + '"></td><td>$' + data.data[i].Price + '</td><td>' + data.data[i].Num + '</td><td>' + data.data[i].Price * data.data[i].Num + '</td><td><a href="#" class="btn btn-danger" id="cancel" data-id="' + data.data[i].Id + '">取消</a></td></tr>';
                                 $("#cart").append(str);
 
                                 total += parseInt(data.data[i].Price * data.data[i].Num);
