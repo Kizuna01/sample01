@@ -40,7 +40,7 @@
                 </ul>
             </div>
             <span>
-                <h2 id="login_message" class="text-info ms-1" >
+                <h2 id="login_message" class="text-info ms-1">
                     <i class="fa-solid fa-crown golden"></i>{{text}}
                 </h2>
             </span>
@@ -50,7 +50,7 @@
             <span><a class="btn btn-danger ms-3" id="logout" href="#" @click="logout()">登出</a></span>
         </div>
     </nav>
-    <div class="container" >
+    <div class="container">
         <div class="row justify-content-center mb-5">
             <div class="col-md-6">
                 <select name="" id="type" class="form-control" v-model="currentType" @change="set_cookie_type()">
@@ -83,7 +83,8 @@
                             <td>{{item.Price}}</td>
                             <td>{{item.Type}}</td>
                             <td>
-                                <img :src="'https://ms0728707.000webhostapp.com/sample01/img/product/'+item.Img" style="height: 100px;width: 100px;">
+                                <img :src="'https://ms0728707.000webhostapp.com/sample01/img/product/'+item.Img"
+                                    style="height: 100px;width: 100px;">
                             </td>
                             <td>{{item.Created_at}}
                             <td>
@@ -99,7 +100,7 @@
                             <td><a href="#" data-bs-toggle="modal" data-bs-target="#updateModal" class="btn btn-primary"
                                     @click="edit_product(item.Id,item.Name,item.Price,item.Type,item.Img,key)">修改</a>
                             </td>
-                            
+
                         </tr>
                         <tr v-else-if="currentType=='全部'">
                             <td>{{item.Id}}</td>
@@ -107,7 +108,8 @@
                             <td>{{item.Price}}</td>
                             <td>{{item.Type}}</td>
                             <td>
-                                <img :src="'https://ms0728707.000webhostapp.com/sample01/img/product/'+item.Img" style="height: 100px;width: 100px;">
+                                <img :src="'https://ms0728707.000webhostapp.com/sample01/img/product/'+item.Img"
+                                    style="height: 100px;width: 100px;">
                             </td>
                             <td>{{item.Created_at}}
                             <td>
@@ -123,7 +125,7 @@
                             <td><a href="#" data-bs-toggle="modal" data-bs-target="#updateModal" class="btn btn-primary"
                                     @click="edit_product(item.Id,item.Name,item.Price,item.Type,item.Img,key)">修改</a>
                             </td>
-                
+
                         </tr>
 
                     </tbody>
@@ -152,8 +154,12 @@
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">照片</label>
-                            <input type="file" class="form-control" id="edit_img" v-model="edit_img" @change="edit_show_img()">
-                            <img class="mt-2" :src="'https://ms0728707.000webhostapp.com/sample01/img/product/'+edit_img" style="height: 100px; width: 100px;">
+                            <input type="file" class="form-control" id="edit_img" v-model="edit_img"
+                                @change="edit_show_img()">
+                            <img src="#" id="show_edit_img" class="d-none mt-2" style="height: 100px; width: 100px;">
+                            <img id="original_img" class="mt-2" 
+                                :src="'https://ms0728707.000webhostapp.com/sample01/img/product/'+edit_img"
+                                style="height: 100px; width: 100px;">
                         </div>
 
                         <div class="mb-3">
@@ -166,7 +172,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @click="cancel_edit()">取消</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            @click="cancel_edit()">取消</button>
                         <button type="button" class="btn btn-primary" id="btn_modal_update"
                             @click="update_product(edit_id, edit_name, edit_price, edit_type,edit_img,edit_key)">確定修改</button>
                     </div>
@@ -234,7 +241,7 @@
             //確認cookie是否有uid
             if (getCookie('uid01') != "") {
                 //傳至後端確認是否合法
-              
+
 
                 $.ajax({
                     type: "post",
@@ -270,16 +277,16 @@
             }
         });
         $("#logout").click(function () {
-            
+
         });
-        function showdata_check_uid(data){
-             
-            nickname=data.data.Nickname;
+        function showdata_check_uid(data) {
+
+            nickname = data.data.Nickname;
             //產生物件，掛載至app
             Vue.createApp(App).mount("#product");
             $("#product").removeClass("d-none");
-            
-           
+
+
 
         }
 
@@ -287,7 +294,7 @@
         const App = {
             data() {
                 return {
-                    text:"歡迎"+nickname,
+                    text: "歡迎" + nickname,
                     product: [],
                     type: [],
                     currentType: getCookie("type"),//從cookie獲取type
@@ -309,7 +316,7 @@
                     dataType: 'json',
                     success: function (data) {
                         if (data.state) {
-                 
+
                             data.data.forEach(function (item) {
                                 vm.product.push(item);
 
@@ -326,7 +333,7 @@
                     dataType: 'json',
                     success: function (data) {
                         if (data.state) {
-        
+
                             data.data.forEach(function (item) {
                                 vm.type.push(item);
                             });
@@ -384,15 +391,15 @@
                 //透過ajax丟給api，修改資料庫
                 //利用key來修改product(陣列)的資料，藉此達到前台後台都修改，且無須重整頁面
                 update_product(id, name, price, type, img, key) {
-                    
+
                     const vm = this;
                     //轉換格式，符合$_FILE需求 利用FormData
                     var formData = new FormData();
                     formData.append('file', edit_img.files[0]);
-                    formData.append('id',id);
-                    formData.append('name',name);
-                    formData.append('price',price);
-                    formData.append('type',type);
+                    formData.append('id', id);
+                    formData.append('name', name);
+                    formData.append('price', price);
+                    formData.append('type', type);
                     //傳至api
                     $.ajax({
                         type: "POST",
@@ -404,13 +411,16 @@
                         processData: false,
                         success: function (data) {
                             alert(data.message);
-                          
+                            $("#show_edit_img").addClass('d-none');
+                            $("#original_img").removeClass("d-none");
+                            $("#show_edit_img").attr('src', URL.createObjectURL(edit_img.files[0]));
+
                         },
                         error: function () {
                             alert("error-https://ms0728707.000webhostapp.com/sample01/api/product_u_api.php");
                         }
                     });
-          
+
                 },
                 add_product() {
                     const vm = this;
@@ -421,7 +431,7 @@
                     formData.append('price', $("#add_price").val());
                     formData.append('type', $("#add_type").val());
                     formData.append('active', $("#add_active").val());
-        
+
 
                     //傳至api
                     $.ajax({
@@ -433,7 +443,7 @@
                         contentType: false,
                         processData: false,
                         success: function (data) {
-            
+
                             alert(data.message);
                             setCookie("type", data.datainfo.type);
                             location.href = "product_control.html";
@@ -443,32 +453,40 @@
                         }
                     });
                 },
-                cancel_edit(){
+                cancel_edit() {
                     const vm = this;
-                    vm.edit_img="";
-                },  
+                    vm.edit_img = "";
+                },
                 //當type選單異動時，更改cookie內的type
                 set_cookie_type() {
                     setCookie("type", $("#type").val());
                 },
-                logout(){
+                logout() {
                     alert("已登出");
                     setCookie("uid01", " ", 7);
                     location.href = "index.html";
                 },
-                edit_show_img(){
+                edit_show_img() {
                     const vm = this;
-                    vm.edit_img=edit_img.files[0];
+                    if (edit_img.files[0].type == 'image/jpeg' || edit_img.files[0].type == 'image/png') {
+                        $("#show_edit_img").removeClass('d-none');
+                        $("#original_img").addClass("d-none");
+                        $("#show_edit_img").attr('src', URL.createObjectURL(edit_img.files[0]));
+                    } else {
+                        alert("僅支援jpg or png");
+                        $("#show_edit_img").empty();
+                    }
+                    vm.edit_img = edit_img.files[0];
                 }
-                
+
 
             },
         }
-       
 
 
 
-       
+
+
         //import w3
         function setCookie(cname, cvalue, exdays) {
             const d = new Date();
