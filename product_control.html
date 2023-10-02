@@ -269,6 +269,11 @@
                 $("#showimg").empty();
             }
         });
+        $("#logout").click(function () {
+            alert("已登出");
+            setCookie("uid01", " ", 7);
+            location.href = "index.html";
+        });
         function showdata_check_uid(data){
              
             nickname=data.data.Nickname;
@@ -476,11 +481,7 @@
 
             },
         }
-        $("#logout").click(function () {
-            alert("已登出");
-            setCookie("uid01", " ", 7);
-            location.href = "index.html";
-        });
+       
 
 
 
