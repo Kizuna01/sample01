@@ -152,7 +152,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">照片</label>
-                            <input type="file" class="form-control" id="edit_img" v-model="edit_img">
+                            <input type="file" class="form-control" id="edit_img" v-model="edit_img" @change="edit_show_img()">
                             <img class="mt-2" :src="'https://ms0728707.000webhostapp.com/sample01/img/product/'+edit_img" style="height: 100px; width: 100px;">
                         </div>
 
@@ -455,7 +455,12 @@
                     alert("已登出");
                     setCookie("uid01", " ", 7);
                     location.href = "index.html";
+                },
+                edit_show_img(){
+                    const vm = this;
+                    vm.edit_img=edit_img.files[0];
                 }
+                
 
             },
         }
