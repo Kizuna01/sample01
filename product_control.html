@@ -47,7 +47,7 @@
             <span> <button type="button" class="btn btn-primary ms-3" data-bs-toggle="modal" data-bs-target="#addModal">
                     新增產品
                 </button></span>
-            <span><a class="btn btn-danger ms-3" id="logout" href="#">登出</a></span>
+            <span><a class="btn btn-danger ms-3" id="logout" href="#" @click="logout()">登出</a></span>
         </div>
     </nav>
     <div class="container" >
@@ -270,9 +270,7 @@
             }
         });
         $("#logout").click(function () {
-            alert("已登出");
-            setCookie("uid01", " ", 7);
-            location.href = "index.html";
+            
         });
         function showdata_check_uid(data){
              
@@ -405,39 +403,14 @@
                         contentType: false,
                         processData: false,
                         success: function (data) {
-                            console.log(data);
-                
-                            // alert(data.message);
-                            // setCookie("type", data.datainfo.type);
-                            // location.href = "product_control.html";
+                            alert(data.message);
+                          
                         },
                         error: function () {
                             alert("error-https://ms0728707.000webhostapp.com/sample01/api/product_u_api.php");
                         }
                     });
-                    // const vm = this;
-                    // console.log(type);
-                    // $.ajax({
-                    //     type: "post",
-                    //     url: 'https://ms0728707.000webhostapp.com/sample01/api/product_u_api.php',
-                    //     dataType: 'json',
-                    //     data: {
-                    //         id: id,
-                    //         name: name,
-                    //         price: price,
-                    //         type: type,
-                    //         img: img
-                    //     },
-                    //     success: function (data) {
-                    //         alert(data.message);
-                    //         vm.product[key].Name = name;
-                    //         vm.product[key].Price = price;
-                    //         vm.product[key].Type = type;
-                    //         vm.product[key].Img = img;
-                    //         $("#updateModal").modal("hide");
-
-                    //     }
-                    // });
+          
                 },
                 add_product() {
                     const vm = this;
@@ -477,6 +450,11 @@
                 //當type選單異動時，更改cookie內的type
                 set_cookie_type() {
                     setCookie("type", $("#type").val());
+                },
+                logout(){
+                    alert("已登出");
+                    setCookie("uid01", " ", 7);
+                    location.href = "index.html";
                 }
 
             },
