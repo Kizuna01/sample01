@@ -166,7 +166,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @click="cancel_edit()">取消</button>
                         <button type="button" class="btn btn-primary" id="btn_modal_update"
                             @click="update_product(edit_id, edit_name, edit_price, edit_type,edit_img,edit_key)">確定修改</button>
                     </div>
@@ -381,29 +381,59 @@
                 //透過ajax丟給api，修改資料庫
                 //利用key來修改product(陣列)的資料，藉此達到前台後台都修改，且無須重整頁面
                 update_product(id, name, price, type, img, key) {
+                    
                     const vm = this;
-                    console.log(type);
+                    //轉換格式，符合$_FILE需求 利用FormData
+                    var formData = new FormData();
+                    formData.append('file', fileupload.files[0]);
+                    formData.append('id',id);
+                    formData.append('name',name);
+                    formData.append('price',price);
+                    formData.append('type',type);
+                    //傳至api
                     $.ajax({
-                        type: "post",
-                        url: 'https://ms0728707.000webhostapp.com/sample01/api/product_u_api.php',
-                        dataType: 'json',
-                        data: {
-                            id: id,
-                            name: name,
-                            price: price,
-                            type: type,
-                            img: img
-                        },
+                        type: "POST",
+                        url: "https://ms0728707.000webhostapp.com/sample01/api/product_u_api.php",
+                        data: formData,
+                        dataType: "json",
+                        cache: false,
+                        contentType: false,
+                        processData: false,
                         success: function (data) {
-                            alert(data.message);
-                            vm.product[key].Name = name;
-                            vm.product[key].Price = price;
-                            vm.product[key].Type = type;
-                            vm.product[key].Img = img;
-                            $("#updateModal").modal("hide");
-
+                            
+                            console.log(data.message);
+                
+                            // alert(data.message);
+                            // setCookie("type", data.datainfo.type);
+                            // location.href = "product_control.html";
+                        },
+                        error: function () {
+                            alert("error-api/product_u_api.php");
                         }
                     });
+                    // const vm = this;
+                    // console.log(type);
+                    // $.ajax({
+                    //     type: "post",
+                    //     url: 'https://ms0728707.000webhostapp.com/sample01/api/product_u_api.php',
+                    //     dataType: 'json',
+                    //     data: {
+                    //         id: id,
+                    //         name: name,
+                    //         price: price,
+                    //         type: type,
+                    //         img: img
+                    //     },
+                    //     success: function (data) {
+                    //         alert(data.message);
+                    //         vm.product[key].Name = name;
+                    //         vm.product[key].Price = price;
+                    //         vm.product[key].Type = type;
+                    //         vm.product[key].Img = img;
+                    //         $("#updateModal").modal("hide");
+
+                    //     }
+                    // });
                 },
                 add_product() {
                     const vm = this;
@@ -436,6 +466,10 @@
                         }
                     });
                 },
+                cancel_edit(){
+                    const vm = this;
+                    vm.edit_img="";
+                },  
                 //當type選單異動時，更改cookie內的type
                 set_cookie_type() {
                     setCookie("type", $("#type").val());
