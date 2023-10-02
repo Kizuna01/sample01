@@ -285,7 +285,7 @@
                     
                     //彩蛋處
                     if($(this).data("username")=="admin"){
-                        alert("9號同學，請掃地不要砍自己帳號");
+                        alert("管理員帳號，無法刪除");
                     }
                     else if (confirm("確定刪除:" + username + "?")) {
                         $.ajax({
