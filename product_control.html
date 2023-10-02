@@ -238,7 +238,7 @@
 
                 $.ajax({
                     type: "post",
-                    url: "api/check_uid_api.php",
+                    url: "https://ms0728707.000webhostapp.com/sample01/api/check_uid_api.php",
                     dataType: "json",
                     data: { uid: getCookie('uid01') },
                     success: showdata_check_uid,
@@ -302,7 +302,7 @@
                 const vm = this;
                 //取得商品
                 $.ajax({
-                    url: 'api/product_control_r_api.php',
+                    url: 'https://ms0728707.000webhostapp.com/sample01/api/product_control_r_api.php',
                     dataType: 'json',
                     success: function (data) {
                         if (data.state) {
@@ -319,7 +319,7 @@
                 });
                 //取得商品類型
                 $.ajax({
-                    url: 'api/type_control_r_api.php',
+                    url: 'https://ms0728707.000webhostapp.com/sample01/api/type_control_r_api.php',
                     dataType: 'json',
                     success: function (data) {
                         if (data.state) {
@@ -356,7 +356,7 @@
                     }
                     $.ajax({
                         type: "post",
-                        url: 'api/product_active_u_api.php',
+                        url: 'https://ms0728707.000webhostapp.com/sample01/api/product_active_u_api.php',
                         dataType: 'json',
                         data: {
                             id: id,
@@ -385,7 +385,7 @@
                     console.log(type);
                     $.ajax({
                         type: "post",
-                        url: 'api/product_u_api.php',
+                        url: 'https://ms0728707.000webhostapp.com/sample01/api/product_u_api.php',
                         dataType: 'json',
                         data: {
                             id: id,
@@ -419,7 +419,7 @@
                     //傳至api
                     $.ajax({
                         type: "POST",
-                        url: "api/product_create_api.php",
+                        url: "https://ms0728707.000webhostapp.com/sample01/api/product_create_api.php",
                         data: formData,
                         dataType: "json",
                         cache: false,

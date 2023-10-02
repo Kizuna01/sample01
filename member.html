@@ -354,7 +354,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "api/check_uid_api.php",
+                url: "https://ms0728707.000webhostapp.com/sample01/api/check_uid_api.php",
                 dataType: "json",
                 data: { uid: getCookie('uid01') },
                 success: showdata_check_uid,
@@ -382,7 +382,7 @@
                 $.ajax({
                     type: "POST",
                     dataType: "json",
-                    url: "api/member_r.php",
+                    url: "https://ms0728707.000webhostapp.com/sample01/api/member_r.php",
                     data: {
                         id: id
                     },
@@ -417,7 +417,7 @@
                         $.ajax({
                             type: "POST",
                             dataType: "json",
-                            url: "api/check_pwd_api.php",
+                            url: "https://ms0728707.000webhostapp.com/sample01/api/check_pwd_api.php",
                             data: {
                                 id: id,
                                 pwd: $("#original_password_input").val(),
@@ -428,7 +428,7 @@
                                     $.ajax({
                                         type: "POST",
                                         dataType: "json",
-                                        url: "api/member_u_api.php",
+                                        url: "https://ms0728707.000webhostapp.com/sample01/api/member_u_api.php",
                                         data: {
                                             id: id,
                                             username: $("#username").val(),
@@ -531,7 +531,7 @@
                 $("#username_uni").html("格式正確");
                 $.ajax({
                     type: "POST",
-                    url: "api/reg_check_uni.php",
+                    url: "https://ms0728707.000webhostapp.com/sample01/api/reg_check_uni.php",
                     data: { username: $("#username").val() },
                     dataType: "JSON",
                     success: function (data) {

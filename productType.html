@@ -179,7 +179,7 @@
 
                 $.ajax({
                     type: "post",
-                    url: "api/check_uid_api.php",
+                    url: "https://ms0728707.000webhostapp.com/sample01/api/check_uid_api.php",
                     dataType: "json",
                     data: { uid: getCookie('uid01') },
                     success: showdata_check_uid,
@@ -267,7 +267,7 @@
                 if (flag_type) {
                     $.ajax({
                         type: "POST",
-                        url: "api/type_create_api.php",
+                        url: "https://ms0728707.000webhostapp.com/sample01/api/type_create_api.php",
                         dataType: "json",
                         data: {
                             type: $("#insert_type").val(),
@@ -336,7 +336,7 @@
                 }else{
                     $.ajax({
                         type: "POST",
-                        url: "api/type_u_api.php",
+                        url: "https://ms0728707.000webhostapp.com/sample01/api/type_u_api.php",
                         dataType: "json",
                         data: {
                             id:$("#edit_typeId").val(),
@@ -374,7 +374,7 @@
                 }
                 $.ajax({
                         type:"POST",
-                        url:"api/type_active_u_api.php",
+                        url:"https://ms0728707.000webhostapp.com/sample01/api/type_active_u_api.php",
                         dataType:"json",
                         data:{
                             id:type_id,

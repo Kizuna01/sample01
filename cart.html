@@ -284,7 +284,7 @@
 
                 $.ajax({
                     type: "POST",
-                    url: "api/check_uid_api.php",
+                    url: "https://ms0728707.000webhostapp.com/sample01/api/check_uid_api.php",
                     dataType: "json",
                     async: false,
                     data: { uid: getCookie('uid01') },
@@ -364,7 +364,7 @@
                 //渲染購物車
                 $.ajax({
                     type: "GET",
-                    url: "api/cart_r_api.php",
+                    url: "https://ms0728707.000webhostapp.com/sample01/api/cart_r_api.php",
                     dataType: "json",
                     data: { member_id: member_id },
                     success: function (data) {
@@ -389,7 +389,7 @@
                             confirm("確定取消?");
                             $.ajax({
                                 type: "POST",
-                                url: "api/cart_d_api.php",
+                                url: "https://ms0728707.000webhostapp.com/sample01/api/cart_d_api.php",
                                 dataType: "json",
                                 data: { id: $(this).data("id") },
                                 success: function (data) {
@@ -427,7 +427,7 @@
             if ($("#cart").text() != "尚未購物") {
                 $.ajax({
                     type: "POST",
-                    url: "api/cart_u_api.php",
+                    url: "https://ms0728707.000webhostapp.com/sample01/api/cart_u_api.php",
                     dataType: "json",
                     data: {
                         member_id: member_id,
@@ -445,7 +445,7 @@
                             } else {
                                 alert(data.message + data.data); //結帳成功，累積消費:
                                 $.ajax({
-                                    url: "api/level_u_api.php",
+                                    url: "https://ms0728707.000webhostapp.com/sample01/api/level_u_api.php",
                                     type: "post",
                                     dataType: "json",
                                     data: {
@@ -471,7 +471,7 @@
                             } else {
                                 alert(data.message + data.data); //結帳成功，累積消費:
                                 $.ajax({
-                                    url: "api/level_u_api.php",
+                                    url: "https://ms0728707.000webhostapp.com/sample01/api/level_u_api.php",
                                     type: "post",
                                     dataType: "json",
                                     data: {
@@ -495,7 +495,7 @@
                             } else {
                                 alert(data.message + data.data); //結帳成功，累積消費:
                                 $.ajax({
-                                    url: "api/level_u_api.php",
+                                    url: "https://ms0728707.000webhostapp.com/sample01/api/level_u_api.php",
                                     type: "post",
                                     dataType: "json",
                                     data: {

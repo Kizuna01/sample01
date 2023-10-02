@@ -164,7 +164,7 @@
                 //傳至後端確認是否合法
                 $.ajax({
                     type: "post",
-                    url: "api/check_uid_api.php",
+                    url: "https://ms0728707.000webhostapp.com/sample01/api/check_uid_api.php",
                     dataType: "json",
                     data: { uid: getCookie('uid01') },
                     success: showdata_check_uid,
@@ -200,7 +200,7 @@
 
                 $.ajax({
                 type:"GET",
-                url:"api/chartData_api.php",
+                url:"https://ms0728707.000webhostapp.com/sample01/api/chartData_api.php",
                 dataType:"json",
                 success:function(data){
 

@@ -343,7 +343,7 @@
  
                 $.ajax({
                     type: "POST",
-                    url: "api/check_uid_api.php",
+                    url: "https://ms0728707.000webhostapp.com/sample01/api/check_uid_api.php",
                     dataType: "json",
                     data: { uid: getCookie('uid01') },
                     success: showdata_check_uid,
@@ -359,7 +359,7 @@
        
                 $.ajax({
                     type: "post",
-                    url: "api/productDetail_r_api.php",
+                    url: "https://ms0728707.000webhostapp.com/sample01/api/productDetail_r_api.php",
                     dataType: "json",
                     data: { id: product_id },
                     success: function (data) {
@@ -394,7 +394,7 @@
         $("#addCart").click(function () {
             $.ajax({
                 type: "post",
-                url: "api/cart_insert_api.php",
+                url: "https://ms0728707.000webhostapp.com/sample01/api/cart_insert_api.php",
                 dataType: "json",
                 data: {
                     name: name,

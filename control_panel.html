@@ -152,7 +152,7 @@
 
                 $.ajax({
                     type: "post",
-                    url: "api/check_uid_api.php",
+                    url: "https://ms0728707.000webhostapp.com/sample01/api/check_uid_api.php",
                     dataType: "json",
                     data: { uid: getCookie('uid01') },
                     success: showdata_check_uid,
@@ -232,7 +232,7 @@
                 $.ajax({
                     type: "GET",
                     dataType: "json",
-                    url: "api/control_panel_mem_r.php",
+                    url: "https://ms0728707.000webhostapp.com/sample01/api/control_panel_mem_r.php",
                     async: false,
                     success: show_member,
                     error: function () {
@@ -263,7 +263,7 @@
                     $.ajax({
                         type: "POST",
                         dataType: "json",
-                        url: "api/control_panel_mem_u.php",
+                        url: "https://ms0728707.000webhostapp.com/sample01/api/control_panel_mem_u.php",
                         data: {
                             id: u_id,
                             username: $("#username").val(),
@@ -291,7 +291,7 @@
                         $.ajax({
                             type: "POST",
                             dataType: "json",
-                            url: "api/control_panel_mem_d.php",
+                            url: "https://ms0728707.000webhostapp.com/sample01/api/control_panel_mem_d.php",
                             data: {
                                 id: $(this).data("id")
                             },
@@ -318,7 +318,7 @@
                     }
                     $.ajax({
                         type: "POST",
-                        url: "api/control_panel_mem_userstate_u.php",
+                        url: "https://ms0728707.000webhostapp.com/sample01/api/control_panel_mem_userstate_u.php",
                         dataType: "json",
                         data: {
                             id: state_id,

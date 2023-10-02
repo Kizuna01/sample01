@@ -272,7 +272,7 @@
 
                 $.ajax({
                     type: "POST",
-                    url: "api/check_uid_api.php",
+                    url: "https://ms0728707.000webhostapp.com/sample01/api/check_uid_api.php",
                     dataType: "json",
                     async: false,
                     data: { uid: getCookie('uid01') },
@@ -333,7 +333,7 @@
                 //渲染消費紀錄
                 $.ajax({
                     type: "POST",
-                    url: "api/record_r_api.php",
+                    url: "https://ms0728707.000webhostapp.com/sample01/api/record_r_api.php",
                     dataType: "json",
                     data: { member_id: member_id },
                     success: function (data) {
