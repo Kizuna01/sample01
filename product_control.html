@@ -29,7 +29,11 @@
                         <a class="nav-link  text-primary" aria-current="page" href="thief.html">盜賊</a>
                     </li>
                     <li class="nav-item">
+<<<<<<< HEAD
                         <a class="nav-link  " aria-current="page" href="hunter.html">獵人</a>
+=======
+                        <a class="nav-link  text-primary" aria-current="plogoutage" href="product_control.html">產品管理</a>
+>>>>>>> c4303d44897f63c7227810704a269a3d9554b212
 
                     <li class="nav-item">
                         <a class="nav-link  " aria-current="page" href="warrior.html">戰士</a>
@@ -42,11 +46,19 @@
                     </li>
                 </ul>
             </div>
+<<<<<<< HEAD
 
+=======
+            <span>
+                <h2 id="login_message" class="text-info ms-1">
+                    <i class="fa-solid fa-crown golden"></i>{{text}}
+                </h2>
+            </span>
+>>>>>>> c4303d44897f63c7227810704a269a3d9554b212
             <span> <button type="button" class="btn btn-primary ms-3" data-bs-toggle="modal" data-bs-target="#addModal">
                     新增產品
                 </button></span>
-            <span><a class="btn btn-danger ms-3" id="logout" href="#">登出</a></span>
+            <span><a class="btn btn-danger ms-3" id="logout" href="#" @click="logout()">登出</a></span>
         </div>
     </nav>
     <div class="container">
@@ -79,17 +91,71 @@
                         </tr>
                     </thead>
                     <tbody v-for="(item,key) in product">
+<<<<<<< HEAD
                         <tr v-if="item.name ==currentType">
                             <td>{{item.name}}</td>
                             <td>{{item.side}}</td>
                             <td>{{item.main}}</td>
                             <td>{{item.AD}}</td>
                             <td>{{item.price}}</td>
+=======
+                        <tr v-if="item.Type==currentType">
+                            <td>{{item.Id}}</td>
+                            <td>{{item.Name}}</td>
+                            <td>{{item.Price}}</td>
+                            <td>{{item.Type}}</td>
+                            <td>
+                                <img :src="'https://ms0728707.000webhostapp.com/sample01/img/product/'+item.Img"
+                                    style="height: 100px;width: 100px;">
+                            </td>
+                            <td>{{item.Created_at}}
+                            <td>
+                            <td>
+                                <div class="mb-3 form-check form-switch form-check-inline">
+                                    <input type="checkbox" class="form-check-input "
+                                        @click="change_active(item.Id,item.Active,key)" role="switch"
+                                        :checked=item.Active=='Y'>
+                                    <label for="" class="form-check-label" v-if="item.Active=='Y'">啟用</label>
+                                    <label for="" class="form-check-label" v-if="item.Active=='N'">停用</label>
+                                </div>
+                            </td>
+>>>>>>> c4303d44897f63c7227810704a269a3d9554b212
                             <td><a href="#" data-bs-toggle="modal" data-bs-target="#updateModal" class="btn btn-primary"
                                     @click="edit_product(item.id,item.name,item.side,item.main,item.AD,item.price)">修改</a>
                             </td>
+<<<<<<< HEAD
                             <td><a href="#" class="btn btn-danger" @click="del(item.id,item.name)">刪除</a></td>
                         </tr>
+=======
+
+                        </tr>
+                        <tr v-else-if="currentType=='全部'">
+                            <td>{{item.Id}}</td>
+                            <td>{{item.Name}}</td>
+                            <td>{{item.Price}}</td>
+                            <td>{{item.Type}}</td>
+                            <td>
+                                <img :src="'https://ms0728707.000webhostapp.com/sample01/img/product/'+item.Img"
+                                    style="height: 100px;width: 100px;">
+                            </td>
+                            <td>{{item.Created_at}}
+                            <td>
+                            <td>
+                                <div class="mb-3 form-check form-switch form-check-inline">
+                                    <input type="checkbox" class="form-check-input "
+                                        @click="change_active(item.Id,item.Active,key)" role="switch"
+                                        :checked=item.Active=='Y'>
+                                    <label for="" class="form-check-label" v-if="item.Active=='Y'">啟用</label>
+                                    <label for="" class="form-check-label" v-if="item.Active=='N'">停用</label>
+                                </div>
+                            </td>
+                            <td><a href="#" data-bs-toggle="modal" data-bs-target="#updateModal" class="btn btn-primary"
+                                    @click="edit_product(item.Id,item.Name,item.Price,item.Type,item.Img,key)">修改</a>
+                            </td>
+
+                        </tr>
+
+>>>>>>> c4303d44897f63c7227810704a269a3d9554b212
                     </tbody>
                 </table>
 
@@ -135,9 +201,31 @@
                             <label for="" class="form-label">價格</label>
                             <input type="text" class="form-control" id="edit_price" v-model="edit_price">
                         </div>
+<<<<<<< HEAD
+=======
+                        <div class="mb-3">
+                            <label for="" class="form-label">照片</label>
+                            <input type="file" class="form-control" id="edit_img" v-model="edit_img"
+                                @change="edit_show_img()">
+                            <img src="#" id="show_edit_img" class="d-none mt-2" style="height: 100px; width: 100px;">
+                            <img id="original_img" class="mt-2" 
+                                :src="'https://ms0728707.000webhostapp.com/sample01/img/product/'+edit_img"
+                                style="height: 100px; width: 100px;">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="drink" clas="form-label">類型</label>
+                            <select name="edit_type" id="edit_type" class="form-select" v-model="edit_type">
+                                <option :value="item.Type" v-for="(item,key) in type" :selected=item.Type==edit_type>
+                                    {{item.Type}}
+                                </option>
+                            </select>
+                        </div>
+>>>>>>> c4303d44897f63c7227810704a269a3d9554b212
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            @click="cancel_edit()">取消</button>
                         <button type="button" class="btn btn-primary" id="btn_modal_update"
                             @click="update_product()">確定修改</button>
                     </div>
@@ -205,12 +293,72 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
         $(function () {
+<<<<<<< HEAD
             setCookie("type","");
         });
        
         const App = {
             data() {
                 return {
+=======
+            //確認cookie是否有uid
+            if (getCookie('uid01') != "") {
+                //傳至後端確認是否合法
+
+
+                $.ajax({
+                    type: "post",
+                    url: "https://ms0728707.000webhostapp.com/sample01/api/check_uid_api.php",
+                    dataType: "json",
+                    data: { uid: getCookie('uid01') },
+                    success: showdata_check_uid,
+                    error: function () {
+                        alert("error-api/check_uid_api.php")
+                    },
+
+                });
+            } else {
+                alert("請先登入");
+                location.href = "index.html";
+            }
+
+
+        });
+        $("#fileupload").change(function () {
+
+            // console.log(fileupload);//該標籤的id
+            // console.log(fileupload.files[0]);
+            // console.log(fileupload.files[0].name);
+            // console.log(fileupload.files[0].type);
+            // console.log(URL.createObjectURL(fileupload.files[0]));
+            if (fileupload.files[0].type == 'image/jpeg' || fileupload.files[0].type == 'image/png') {
+                $("#showimg").removeClass('d-none');
+                $("#showimg").attr('src', URL.createObjectURL(fileupload.files[0]));
+            } else {
+                alert("僅支援jpg or png");
+                $("#showimg").empty();
+            }
+        });
+        $("#logout").click(function () {
+
+        });
+        function showdata_check_uid(data) {
+
+            nickname = data.data.Nickname;
+            //產生物件，掛載至app
+            Vue.createApp(App).mount("#product");
+            $("#product").removeClass("d-none");
+
+
+
+        }
+
+
+        const App = {
+            data() {
+                return {
+                    text: "歡迎" + nickname,
+>>>>>>> c4303d44897f63c7227810704a269a3d9554b212
                     product: [],
                     currentType: getCookie("type"),
                 }
@@ -219,28 +367,57 @@
                 const vm = this;
                 //取得商品
                 $.ajax({
+<<<<<<< HEAD
                     url: 'api/product_control_r_api.php',
                     type:"post",
                     data:{
                         table:'thief'
                     },
+=======
+                    url: 'https://ms0728707.000webhostapp.com/sample01/api/product_control_r_api.php',
+>>>>>>> c4303d44897f63c7227810704a269a3d9554b212
                     dataType: 'json',
                     success: function (data) {
                         console.log(data);
                         if (data.state) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> c4303d44897f63c7227810704a269a3d9554b212
                             data.data.forEach(function (item) {
                                 vm.product.push(item);
                             });
                         } else {
                             alert(data.message);
                         }
+<<<<<<< HEAD
                     },
                     error:function(){
                         alert("error-api/product_control_r_api.php");
+=======
+                    }
+                });
+                //取得商品類型
+                $.ajax({
+                    url: 'https://ms0728707.000webhostapp.com/sample01/api/type_control_r_api.php',
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.state) {
+
+                            data.data.forEach(function (item) {
+                                vm.type.push(item);
+                            });
+
+                        } else {
+                            alert(data.message);
+                        }
+
+>>>>>>> c4303d44897f63c7227810704a269a3d9554b212
                     }
                 });
             },
             methods: {
+<<<<<<< HEAD
                 edit_product(id, name, side, main, AD, price) {
                     $("#edit_id").val(id);
                     $("#edit_name").val(name);
@@ -271,6 +448,112 @@
                                 location.href="product_control.html";
                                 setCookie("type",$("#edit_name").val());
                             }
+=======
+
+                change_active(id, active, key) {
+                    //傳入商品id，商品狀態，商品的索引值
+                    var state;
+                    const vm = this;
+
+                    if (active == 'Y') {
+                        vm.product[key].Active = 'N';//讓網頁無須重新整理即可變更
+
+                        state = 'N';//等等透過ajax傳給後端
+
+
+                    } else {
+                        vm.product[key].Active = 'Y';//讓網頁無須重新整理即可變更
+
+                        state = 'Y';//等等透過ajax傳給後端
+
+                    }
+                    $.ajax({
+                        type: "post",
+                        url: 'https://ms0728707.000webhostapp.com/sample01/api/product_active_u_api.php',
+                        dataType: 'json',
+                        data: {
+                            id: id,
+                            active: state
+                        },
+                        success: function (data) {
+                            alert(data.message);
+                        }
+                    });
+                },
+                //收集要修改的資料，代入修改頁面
+                edit_product(id, name, price, type, img, key) {
+                    const vm = this;
+
+                    vm.edit_name = name;
+                    vm.edit_price = price;
+                    vm.edit_id = id;
+                    vm.edit_type = type;
+                    vm.edit_img = img
+                    vm.edit_key = key;
+                },
+                //透過ajax丟給api，修改資料庫
+                //利用key來修改product(陣列)的資料，藉此達到前台後台都修改，且無須重整頁面
+                update_product(id, name, price, type, img, key) {
+
+                    const vm = this;
+                    //轉換格式，符合$_FILE需求 利用FormData
+                    var formData = new FormData();
+                    formData.append('file', edit_img.files[0]);
+                    formData.append('id', id);
+                    formData.append('name', name);
+                    formData.append('price', price);
+                    formData.append('type', type);
+                    //傳至api
+                    $.ajax({
+                        type: "POST",
+                        url: "https://ms0728707.000webhostapp.com/sample01/api/product_u_api.php",
+                        data: formData,
+                        dataType: "json",
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        success: function (data) {
+                            alert(data.message);
+                            location.href="product_control.html";
+                            /*
+                            $("#show_edit_img").addClass('d-none');
+                            $("#original_img").removeClass("d-none");
+                            $("#show_edit_img").attr('src', URL.createObjectURL(edit_img.files[0]));
+                            */
+
+                        },
+                        error: function () {
+                            alert("error-https://ms0728707.000webhostapp.com/sample01/api/product_u_api.php");
+                        }
+                    });
+
+                },
+                add_product() {
+                    const vm = this;
+                    //轉換格式，符合$_FILE需求 利用FormData
+                    var formData = new FormData();
+                    formData.append('file', fileupload.files[0]);
+                    formData.append('name', $("#add_name").val());
+                    formData.append('price', $("#add_price").val());
+                    formData.append('type', $("#add_type").val());
+                    formData.append('active', $("#add_active").val());
+
+
+                    //傳至api
+                    $.ajax({
+                        type: "POST",
+                        url: "https://ms0728707.000webhostapp.com/sample01/api/product_create_api.php",
+                        data: formData,
+                        dataType: "json",
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        success: function (data) {
+
+                            alert(data.message);
+                            setCookie("type", data.datainfo.type);
+                            location.href = "product_control.html";
+>>>>>>> c4303d44897f63c7227810704a269a3d9554b212
                         },
                         error: function () {
                             alert("error-api/product_u_api.php")
@@ -304,6 +587,7 @@
                         }
                     });
                 },
+<<<<<<< HEAD
                 del(id,type){
                     if(confirm("確定刪除"+type+"?")){
                         $.ajax({
@@ -333,6 +617,42 @@
         Vue.createApp(App).mount("#product");
         $("#product").removeClass("d-none");
 
+=======
+                cancel_edit() {
+                    const vm = this;
+                    vm.edit_img = "";
+                },
+                //當type選單異動時，更改cookie內的type
+                set_cookie_type() {
+                    setCookie("type", $("#type").val());
+                },
+                logout() {
+                    alert("已登出");
+                    setCookie("uid01", " ", 7);
+                    location.href = "index.html";
+                },
+                edit_show_img() {
+                    const vm = this;
+                    if (edit_img.files[0].type == 'image/jpeg' || edit_img.files[0].type == 'image/png') {
+                        $("#show_edit_img").removeClass('d-none');
+                        $("#original_img").addClass("d-none");
+                        $("#show_edit_img").attr('src', URL.createObjectURL(edit_img.files[0]));
+                    } else {
+                        alert("僅支援jpg or png");
+                        $("#show_edit_img").empty();
+                    }
+                    vm.edit_img = edit_img.files[0];
+                }
+
+
+            },
+        }
+
+
+
+
+
+>>>>>>> c4303d44897f63c7227810704a269a3d9554b212
         //import w3
         function setCookie(cname, cvalue, exdays) {
             const d = new Date();
