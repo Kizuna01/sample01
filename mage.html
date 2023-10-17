@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>盜賊</title>
+    <title>法師</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/mycss.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -26,7 +26,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                     <li class="nav-item">
-                        <a class="nav-link  text-primary" aria-current="page" href="thief.html">盜賊</a>
+                        <a class="nav-link  " aria-current="page" href="thief.html">盜賊</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link  " aria-current="page" href="hunter.html">獵人</a>
@@ -35,10 +35,10 @@
                         <a class="nav-link  " aria-current="page" href="warrior.html">戰士</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link  " aria-current="page" href="mage.html">法師</a>
+                        <a class="nav-link  text-primary" aria-current="page" href="mage.html">法師</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link  " aria-current="page" href="mage.html">CZ武器</a>
+                        <a class="nav-link  " aria-current="page" href="CZ.html">CZ武器</a>
                     </li>
                 </ul>
             </div>
@@ -54,15 +54,26 @@
             <div class="col-md-6">
                 <select name="" id="type" class="form-control" v-model="currentType">
                     <option value="">請選擇</option>
-                    <option value="130頭盔">130頭盔</option>
-                    <option value="130套服">130套服</option>
-                    <option value="140套服">140套服</option>
-                    <option value="130鞋子">130鞋子</option>
-                    <option value="140鞋子">140鞋子</option>
-                    <option value="130披風">130披風</option>
-                    <option value="140披風">140披風</option>
-                    <option value="乾淨手套">乾淨手套</option>
+                    <option value="頭盔">頭盔</option>
+                    <option value="套服">套服</option>
+                    <option value="鞋子">鞋子</option>
+                    <option value="披風">披風</option>
+                    <option value="手套">手套</option>
+                    <option value="衝過頭盔">衝過頭盔</option>
+                    <option value="衝過套服">衝過套服</option>
+                    <option value="衝過鞋子">衝過鞋子</option>
+                    <option value="衝過披風">衝過披風</option>
                     <option value="衝過手套">衝過手套</option>
+                    <option value="衝過盾牌">衝過盾牌</option>
+                    <option value="肩膀">肩膀</option>
+                    <option value="衝過肩膀">衝過肩膀</option>
+                    <option value="龍骨">龍骨</option>
+                    <option value="聖龍">聖龍</option>
+                    <option value="大火杖">大火杖</option>
+                    <option value="大冰杖">大冰杖</option>
+                    <option value="衝過大火杖">衝過大火杖</option>
+                    <option value="衝過大冰杖">衝過大冰杖</option>
+                    <option value="BS法杖(衝過)">BS法杖(衝過)</option>
                 </select>
             </div>
         </div>
@@ -72,21 +83,17 @@
                     <thead>
                         <tr>
                             <th>名稱</th>
-                            <th>敏捷</th>
-                            <th>幸運</th>
-                            <th>攻擊</th>
+                            <th>魔攻</th>
                             <th>價格</th>
                         </tr>
                     </thead>
                     <tbody v-for="(item,key) in product">
                         <tr v-if="item.name ==currentType">
                             <td>{{item.name}}</td>
-                            <td>{{item.side}}</td>
-                            <td>{{item.main}}</td>
-                            <td>{{item.AD}}</td>
+                            <td>{{item.AP}}</td>
                             <td>{{item.price}}</td>
                             <td><a href="#" data-bs-toggle="modal" data-bs-target="#updateModal" class="btn btn-primary"
-                                    @click="edit_product(item.id,item.name,item.side,item.main,item.AD,item.price)">修改</a>
+                                    @click="edit_product(item.id,item.name,item.AP,item.price)">修改</a>
                             </td>
                             <td><a href="#" class="btn btn-danger" @click="del(item.id,item.name)">刪除</a></td>
                         </tr>
@@ -108,28 +115,31 @@
                         <div class="mb-3">
                             <label for="" class="form-label">名稱</label>
                             <select name="" id="edit_name" class="form-control">
-                                <option value="130頭盔">130頭盔</option>
-                                <option value="130套服">130套服</option>
-                                <option value="140套服">140套服</option>
-                                <option value="130鞋子">130鞋子</option>
-                                <option value="140鞋子">140鞋子</option>
-                                <option value="130披風">130披風</option>
-                                <option value="140披風">140披風</option>
-                                <option value="乾淨手套">乾淨手套</option>
+                                <option value="頭盔">頭盔</option>
+                                <option value="套服">套服</option>
+                                <option value="鞋子">鞋子</option>
+                                <option value="披風">披風</option>
+                                <option value="手套">手套</option>
+                                <option value="衝過頭盔">衝過頭盔</option>
+                                <option value="衝過套服">衝過套服</option>
+                                <option value="衝過鞋子">衝過鞋子</option>
+                                <option value="衝過披風">衝過披風</option>
                                 <option value="衝過手套">衝過手套</option>
+                                <option value="衝過盾牌">衝過盾牌</option>
+                                <option value="肩膀">肩膀</option>
+                                <option value="衝過肩膀">衝過肩膀</option>
+                                <option value="龍骨">龍骨</option>
+                                <option value="聖龍">聖龍</option>
+                                <option value="大火杖">大火杖</option>
+                                <option value="大冰杖">大冰杖</option>
+                                <option value="衝過大火杖">衝過大火杖</option>
+                                <option value="衝過大冰杖">衝過大冰杖</option>
+                                <option value="BS法杖(衝過)">BS法杖(衝過)</option>
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="" class="form-label">敏捷</label>
-                            <input type="number" class="form-control" id="edit_side" v-model="edit_D">
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">幸運</label>
-                            <input type="number" class="form-control" id="edit_main" v-model="edit_L">
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">攻擊</label>
-                            <input type="number" class="form-control" id="edit_AD" v-model="edit_AD">
+                            <label for="" class="form-label">魔攻</label>
+                            <input type="number" class="form-control" id="edit_AP" v-model="edit_AP">
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">價格</label>
@@ -157,29 +167,31 @@
                         <div class="mb-3">
                             <label for="" class="form-label">名稱</label>
                             <select name="" id="add_name" class="form-control">
-                                <option value="">請選擇</option>
-                                <option value="130頭盔">130頭盔</option>
-                                <option value="130套服">130套服</option>
-                                <option value="140套服">140套服</option>
-                                <option value="130鞋子">130鞋子</option>
-                                <option value="140鞋子">140鞋子</option>
-                                <option value="130披風">130披風</option>
-                                <option value="140披風">140披風</option>
-                                <option value="乾淨手套">乾淨手套</option>
+                                <option value="頭盔">頭盔</option>
+                                <option value="套服">套服</option>
+                                <option value="鞋子">鞋子</option>
+                                <option value="披風">披風</option>
+                                <option value="手套">手套</option>
+                                <option value="衝過頭盔">衝過頭盔</option>
+                                <option value="衝過套服">衝過套服</option>
+                                <option value="衝過鞋子">衝過鞋子</option>
+                                <option value="衝過披風">衝過披風</option>
                                 <option value="衝過手套">衝過手套</option>
+                                <option value="衝過盾牌">衝過盾牌</option>
+                                <option value="肩膀">肩膀</option>
+                                <option value="衝過肩膀">衝過肩膀</option>
+                                <option value="龍骨">龍骨</option>
+                                <option value="聖龍">聖龍</option>
+                                <option value="大火杖">大火杖</option>
+                                <option value="大冰杖">大冰杖</option>
+                                <option value="衝過大火杖">衝過大火杖</option>
+                                <option value="衝過大冰杖">衝過大冰杖</option>
+                                <option value="BS法杖(衝過)">BS法杖(衝過)</option>
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="" class="form-label">敏捷</label>
-                            <input type="number" class="form-control" id="add_side">
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">幸運</label>
-                            <input type="number" class="form-control" id="add_main">
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">攻擊</label>
-                            <input type="number" class="form-control" id="add_AD">
+                            <label for="" class="form-label">魔攻</label>
+                            <input type="number" class="form-control" id="add_AP">
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">價格</label>
@@ -205,9 +217,9 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
         $(function () {
-            setCookie("type","");
+            setCookie("type", "");
         });
-       
+
         const App = {
             data() {
                 return {
@@ -220,9 +232,9 @@
                 //取得商品
                 $.ajax({
                     url: 'api/product_control_r_api.php',
-                    type:"post",
-                    data:{
-                        table:'thief'
+                    type: "post",
+                    data: {
+                        table: 'mage'
                     },
                     dataType: 'json',
                     success: function (data) {
@@ -235,22 +247,20 @@
                             alert(data.message);
                         }
                     },
-                    error:function(){
+                    error: function () {
                         alert("error-api/product_control_r_api.php");
                     }
                 });
             },
             methods: {
-                edit_product(id, name, side, main, AD, price) {
+                edit_product(id, name,AP, price) {
                     $("#edit_id").val(id);
                     $("#edit_name").val(name);
-                    $("#edit_side").val(side);
-                    $("#edit_main").val(main);
-                    $("#edit_AD").val(AD);
+                    $("#edit_AP").val(AP);
                     $("#edit_price").val(price);
                 },
                 update_product() {
-                    
+
                     $.ajax({
                         url: 'api/product_u_api.php',
                         type: "post",
@@ -258,18 +268,16 @@
                         data: {
                             id: $("#edit_id").val(),
                             name: $("#edit_name").val(),
-                            side: $("#edit_side").val(),
-                            main: $("#edit_main").val(),
-                            AD: $("#edit_AD").val(),
+                            AP: $("#edit_AP").val(),
                             price: $("#edit_price").val(),
-                            table:"thief"
+                            table: "mage"
                         },
                         success: function (data) {
                             console.log(data);
                             if (data.state) {
                                 alert(data.message);
-                                location.href="product_control.html";
-                                setCookie("type",$("#edit_name").val());
+                                location.href = "mage.html";
+                                setCookie("type", $("#edit_name").val());
                             }
                         },
                         error: function () {
@@ -285,18 +293,16 @@
                         dataType: 'json',
                         data: {
                             name: $("#add_name").val(),
-                            side: $("#add_side").val(),
-                            main: $("#add_main").val(),
-                            AD: $("#add_AD").val(),
+                            AP: $("#add_AP").val(),
                             price: $("#add_price").val(),
-                            table:"thief"
+                            table: "mage"
                         },
                         success: function (data) {
                             console.log(data);
                             if (data.state) {
                                 alert(data.message);
-                                location.href="product_control.html";
-                                setCookie("type",$("#add_name").val());
+                                location.href = "mage.html";
+                                setCookie("type", $("#add_name").val());
                             }
                         },
                         error: function () {
@@ -304,29 +310,29 @@
                         }
                     });
                 },
-                del(id,type){
-                    if(confirm("確定刪除"+type+"?")){
+                del(id, type) {
+                    if (confirm("確定刪除" + type + "?")) {
                         $.ajax({
-                        url: 'api/product_d_api.php',
-                        type: "post",
-                        dataType: 'json',
-                        data: {
-                           id:id,
-                           table:"thief"
-                        },
-                        success: function (data) {
-                            if (data.state) {
-                                alert(data.message);
-                                location.href="product_control.html";
-                                setCookie("type",type);
+                            url: 'api/product_d_api.php',
+                            type: "post",
+                            dataType: 'json',
+                            data: {
+                                id: id,
+                                table: "mage"
+                            },
+                            success: function (data) {
+                                if (data.state) {
+                                    alert(data.message);
+                                    location.href = "mage.html";
+                                    setCookie("type", type);
+                                }
+                            },
+                            error: function () {
+                                alert("error-api/product_create_api.php")
                             }
-                        },
-                        error: function () {
-                            alert("error-api/product_create_api.php")
-                        }
-                    });
+                        });
                     }
-                    
+
                 }
             },
         }

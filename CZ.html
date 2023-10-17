@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>盜賊</title>
+    <title>cz武器</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/mycss.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -26,7 +26,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                     <li class="nav-item">
-                        <a class="nav-link  text-primary" aria-current="page" href="thief.html">盜賊</a>
+                        <a class="nav-link  " aria-current="page" href="thief.html">盜賊</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link  " aria-current="page" href="hunter.html">獵人</a>
@@ -38,7 +38,7 @@
                         <a class="nav-link  " aria-current="page" href="mage.html">法師</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link  " aria-current="page" href="mage.html">CZ武器</a>
+                        <a class="nav-link  text-primary" aria-current="page" href="CZ.html">CZ武器</a>
                     </li>
                 </ul>
             </div>
@@ -54,15 +54,14 @@
             <div class="col-md-6">
                 <select name="" id="type" class="form-control" v-model="currentType">
                     <option value="">請選擇</option>
-                    <option value="130頭盔">130頭盔</option>
-                    <option value="130套服">130套服</option>
-                    <option value="140套服">140套服</option>
-                    <option value="130鞋子">130鞋子</option>
-                    <option value="140鞋子">140鞋子</option>
-                    <option value="130披風">130披風</option>
-                    <option value="140披風">140披風</option>
-                    <option value="乾淨手套">乾淨手套</option>
-                    <option value="衝過手套">衝過手套</option>
+                    <option value="惡魔之拳">惡魔之拳</option>
+                    <option value="間諜神斬">間諜神斬</option>
+                    <option value="聖魂之劍">聖魂之劍</option>
+                    <option value="最終霸氣之矛">最終霸氣之矛</option>
+                    <option value="烈焰斷魂斧">烈焰斷魂斧</option>
+                    <option value="聖戰士之槌">聖戰士之槌</option>
+                    <option value="靈魂擴張弓">靈魂擴張弓</option>
+                    <option value="心靈擴張弩">靈魂擴張弩</option>
                 </select>
             </div>
         </div>
@@ -72,8 +71,8 @@
                     <thead>
                         <tr>
                             <th>名稱</th>
-                            <th>敏捷</th>
-                            <th>幸運</th>
+                            <th>副屬性</th>
+                            <th>主屬性</th>
                             <th>攻擊</th>
                             <th>價格</th>
                         </tr>
@@ -108,23 +107,22 @@
                         <div class="mb-3">
                             <label for="" class="form-label">名稱</label>
                             <select name="" id="edit_name" class="form-control">
-                                <option value="130頭盔">130頭盔</option>
-                                <option value="130套服">130套服</option>
-                                <option value="140套服">140套服</option>
-                                <option value="130鞋子">130鞋子</option>
-                                <option value="140鞋子">140鞋子</option>
-                                <option value="130披風">130披風</option>
-                                <option value="140披風">140披風</option>
-                                <option value="乾淨手套">乾淨手套</option>
-                                <option value="衝過手套">衝過手套</option>
+                                <option value="惡魔之拳">惡魔之拳</option>
+                                <option value="間諜神斬">間諜神斬</option>
+                                <option value="聖魂之劍">聖魂之劍</option>
+                                <option value="最終霸氣之矛">最終霸氣之矛</option>
+                                <option value="烈焰斷魂斧">烈焰斷魂斧</option>
+                                <option value="聖戰士之槌">聖戰士之槌</option>
+                                <option value="靈魂擴張弓">靈魂擴張弓</option>
+                                <option value="心靈擴張弩">靈魂擴張弩</option>
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="" class="form-label">敏捷</label>
+                            <label for="" class="form-label">副屬性</label>
                             <input type="number" class="form-control" id="edit_side" v-model="edit_D">
                         </div>
                         <div class="mb-3">
-                            <label for="" class="form-label">幸運</label>
+                            <label for="" class="form-label">主屬性</label>
                             <input type="number" class="form-control" id="edit_main" v-model="edit_L">
                         </div>
                         <div class="mb-3">
@@ -158,23 +156,22 @@
                             <label for="" class="form-label">名稱</label>
                             <select name="" id="add_name" class="form-control">
                                 <option value="">請選擇</option>
-                                <option value="130頭盔">130頭盔</option>
-                                <option value="130套服">130套服</option>
-                                <option value="140套服">140套服</option>
-                                <option value="130鞋子">130鞋子</option>
-                                <option value="140鞋子">140鞋子</option>
-                                <option value="130披風">130披風</option>
-                                <option value="140披風">140披風</option>
-                                <option value="乾淨手套">乾淨手套</option>
-                                <option value="衝過手套">衝過手套</option>
+                                <option value="惡魔之拳">惡魔之拳</option>
+                                <option value="間諜神斬">間諜神斬</option>
+                                <option value="聖魂之劍">聖魂之劍</option>
+                                <option value="最終霸氣之矛">最終霸氣之矛</option>
+                                <option value="烈焰斷魂斧">烈焰斷魂斧</option>
+                                <option value="聖戰士之槌">聖戰士之槌</option>
+                                <option value="靈魂擴張弓">靈魂擴張弓</option>
+                                <option value="心靈擴張弩">靈魂擴張弩</option>
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="" class="form-label">敏捷</label>
+                            <label for="" class="form-label">副屬性</label>
                             <input type="number" class="form-control" id="add_side">
                         </div>
                         <div class="mb-3">
-                            <label for="" class="form-label">幸運</label>
+                            <label for="" class="form-label">主屬性</label>
                             <input type="number" class="form-control" id="add_main">
                         </div>
                         <div class="mb-3">
@@ -183,7 +180,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">價格</label>
-                            <input type="number" class="form-control" id="add_price">
+                            <input type="number" step="0.01" class="form-control" id="add_price">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -205,9 +202,9 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
         $(function () {
-            setCookie("type","");
+            setCookie("type", "");
         });
-       
+
         const App = {
             data() {
                 return {
@@ -219,10 +216,10 @@
                 const vm = this;
                 //取得商品
                 $.ajax({
-                    url: 'api/product_control_r_api.php',
-                    type:"post",
-                    data:{
-                        table:'thief'
+                    url: 'https://ms0728707.000webhostapp.com/mystery/api/product_control_r_api.php',
+                    type: "post",
+                    data: {
+                        table: 'cz'
                     },
                     dataType: 'json',
                     success: function (data) {
@@ -235,7 +232,7 @@
                             alert(data.message);
                         }
                     },
-                    error:function(){
+                    error: function () {
                         alert("error-api/product_control_r_api.php");
                     }
                 });
@@ -250,9 +247,9 @@
                     $("#edit_price").val(price);
                 },
                 update_product() {
-                    
+
                     $.ajax({
-                        url: 'api/product_u_api.php',
+                        url: 'https://ms0728707.000webhostapp.com/mystery/api/product_u_api.php',
                         type: "post",
                         dataType: 'json',
                         data: {
@@ -262,14 +259,14 @@
                             main: $("#edit_main").val(),
                             AD: $("#edit_AD").val(),
                             price: $("#edit_price").val(),
-                            table:"thief"
+                            table: "cz"
                         },
                         success: function (data) {
                             console.log(data);
                             if (data.state) {
                                 alert(data.message);
-                                location.href="product_control.html";
-                                setCookie("type",$("#edit_name").val());
+                                location.href = "CZ.html";
+                                setCookie("type", $("#edit_name").val());
                             }
                         },
                         error: function () {
@@ -280,7 +277,7 @@
                 },
                 add_product() {
                     $.ajax({
-                        url: 'api/product_create_api.php',
+                        url: 'https://ms0728707.000webhostapp.com/mystery/api/product_create_api.php',
                         type: "post",
                         dataType: 'json',
                         data: {
@@ -289,14 +286,14 @@
                             main: $("#add_main").val(),
                             AD: $("#add_AD").val(),
                             price: $("#add_price").val(),
-                            table:"thief"
+                            table: "cz"
                         },
                         success: function (data) {
                             console.log(data);
                             if (data.state) {
                                 alert(data.message);
-                                location.href="product_control.html";
-                                setCookie("type",$("#add_name").val());
+                                location.href = "CZ.html";
+                                setCookie("type", $("#add_name").val());
                             }
                         },
                         error: function () {
@@ -304,29 +301,29 @@
                         }
                     });
                 },
-                del(id,type){
-                    if(confirm("確定刪除"+type+"?")){
+                del(id, type) {
+                    if (confirm("確定刪除" + type + "?")) {
                         $.ajax({
-                        url: 'api/product_d_api.php',
-                        type: "post",
-                        dataType: 'json',
-                        data: {
-                           id:id,
-                           table:"thief"
-                        },
-                        success: function (data) {
-                            if (data.state) {
-                                alert(data.message);
-                                location.href="product_control.html";
-                                setCookie("type",type);
+                            url: 'https://ms0728707.000webhostapp.com/mystery/api/product_d_api.php',
+                            type: "post",
+                            dataType: 'json',
+                            data: {
+                                id: id,
+                                table: "cz"
+                            },
+                            success: function (data) {
+                                if (data.state) {
+                                    alert(data.message);
+                                    location.href = "CZ.html";
+                                    setCookie("type", type);
+                                }
+                            },
+                            error: function () {
+                                alert("error-api/product_create_api.php")
                             }
-                        },
-                        error: function () {
-                            alert("error-api/product_create_api.php")
-                        }
-                    });
+                        });
                     }
-                    
+
                 }
             },
         }

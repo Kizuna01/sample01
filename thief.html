@@ -38,7 +38,7 @@
                         <a class="nav-link  " aria-current="page" href="mage.html">法師</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link  " aria-current="page" href="mage.html">CZ武器</a>
+                        <a class="nav-link  " aria-current="page" href="CZ.html">CZ武器</a>
                     </li>
                 </ul>
             </div>
@@ -63,6 +63,12 @@
                     <option value="140披風">140披風</option>
                     <option value="乾淨手套">乾淨手套</option>
                     <option value="衝過手套">衝過手套</option>
+                    <option value="肩膀">肩膀</option>
+                    <option value="衝過肩膀">衝過肩膀</option>
+                    <option value="衝過披風">衝過披風</option>
+                    <option value="衝過鞋子">衝過鞋子</option>
+                    <option value="衝過套服">衝過套服</option>
+                    <option value="衝過頭盔">衝過頭盔</option>
                 </select>
             </div>
         </div>
@@ -117,6 +123,12 @@
                                 <option value="140披風">140披風</option>
                                 <option value="乾淨手套">乾淨手套</option>
                                 <option value="衝過手套">衝過手套</option>
+                                <option value="肩膀">肩膀</option>
+                                <option value="衝過肩膀">衝過肩膀</option>
+                                <option value="衝過披風">衝過披風</option>
+                                <option value="衝過鞋子">衝過鞋子</option>
+                                <option value="衝過套服">衝過套服</option>
+                                <option value="衝過頭盔">衝過頭盔</option>
                             </select>
                         </div>
                         <div class="mb-3">
@@ -167,6 +179,12 @@
                                 <option value="140披風">140披風</option>
                                 <option value="乾淨手套">乾淨手套</option>
                                 <option value="衝過手套">衝過手套</option>
+                                <option value="肩膀">肩膀</option>
+                                <option value="衝過肩膀">衝過肩膀</option>
+                                <option value="衝過披風">衝過披風</option>
+                                <option value="衝過鞋子">衝過鞋子</option>
+                                <option value="衝過套服">衝過套服</option>
+                                <option value="衝過頭盔">衝過頭盔</option>
                             </select>
                         </div>
                         <div class="mb-3">
@@ -204,10 +222,11 @@
     <script src="js/wow.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
+        var link="https://ms0728707.000webhostapp.com/mystery/";
         $(function () {
-            setCookie("type","");
+            setCookie("type", "");
         });
-       
+
         const App = {
             data() {
                 return {
@@ -220,9 +239,9 @@
                 //取得商品
                 $.ajax({
                     url: 'api/product_control_r_api.php',
-                    type:"post",
-                    data:{
-                        table:'thief'
+                    type: "post",
+                    data: {
+                        table: 'thief'
                     },
                     dataType: 'json',
                     success: function (data) {
@@ -235,7 +254,7 @@
                             alert(data.message);
                         }
                     },
-                    error:function(){
+                    error: function () {
                         alert("error-api/product_control_r_api.php");
                     }
                 });
@@ -250,7 +269,7 @@
                     $("#edit_price").val(price);
                 },
                 update_product() {
-                    
+
                     $.ajax({
                         url: 'api/product_u_api.php',
                         type: "post",
@@ -262,14 +281,14 @@
                             main: $("#edit_main").val(),
                             AD: $("#edit_AD").val(),
                             price: $("#edit_price").val(),
-                            table:"thief"
+                            table: "thief"
                         },
                         success: function (data) {
                             console.log(data);
                             if (data.state) {
                                 alert(data.message);
-                                location.href="product_control.html";
-                                setCookie("type",$("#edit_name").val());
+                                location.href = "thief.html";
+                                setCookie("type", $("#edit_name").val());
                             }
                         },
                         error: function () {
@@ -289,14 +308,14 @@
                             main: $("#add_main").val(),
                             AD: $("#add_AD").val(),
                             price: $("#add_price").val(),
-                            table:"thief"
+                            table: "thief"
                         },
                         success: function (data) {
                             console.log(data);
                             if (data.state) {
                                 alert(data.message);
-                                location.href="product_control.html";
-                                setCookie("type",$("#add_name").val());
+                                location.href = "thief.html";
+                                setCookie("type", $("#add_name").val());
                             }
                         },
                         error: function () {
@@ -304,29 +323,29 @@
                         }
                     });
                 },
-                del(id,type){
-                    if(confirm("確定刪除"+type+"?")){
+                del(id, type) {
+                    if (confirm("確定刪除" + type + "?")) {
                         $.ajax({
-                        url: 'api/product_d_api.php',
-                        type: "post",
-                        dataType: 'json',
-                        data: {
-                           id:id,
-                           table:"thief"
-                        },
-                        success: function (data) {
-                            if (data.state) {
-                                alert(data.message);
-                                location.href="product_control.html";
-                                setCookie("type",type);
+                            url: 'api/product_d_api.php',
+                            type: "post",
+                            dataType: 'json',
+                            data: {
+                                id: id,
+                                table: "thief"
+                            },
+                            success: function (data) {
+                                if (data.state) {
+                                    alert(data.message);
+                                    location.href = "thief.html";
+                                    setCookie("type", type);
+                                }
+                            },
+                            error: function () {
+                                alert("error-api/product_create_api.php")
                             }
-                        },
-                        error: function () {
-                            alert("error-api/product_create_api.php")
-                        }
-                    });
+                        });
                     }
-                    
+
                 }
             },
         }
