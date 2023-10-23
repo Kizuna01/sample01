@@ -369,13 +369,13 @@
                         name = data.data.Name;
                         price = data.data.Price;
                         if (level == 'S') {
-                            price = data.data.Price * 0.1;
+                            price = Math.round(data.data.Price * 0.1);
                         }
                         if (level == 'A') {
-                            price = data.data.Price * 0.5;
+                            price = Math.round(data.data.Price * 0.5);
                         }
                         if (level == 'B') {
-                            price = data.data.Price * 0.7;
+                            price = Math.round(data.data.Price * 0.7);
                         }
                         $("#productImg").empty();
                         $("#productName").empty();
