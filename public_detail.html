@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://want1yo.com/images/favicon.png">
+    <link rel="stylesheet" href="css/bootstrap-icons-1.11.3/font/bootstrap-icons.css">
+    <!--bi 圖示庫->安裝 載點 :https://github.com/twbs/icons/releases/tag/v1.11.3-->
+    <link rel="stylesheet" href="css/fontawesome-free-6.7.1/css/all.css" rel="stylesheet"><!-- icon: fa-->
+    <link rel="stylesheet" href="css/bootstrap5.min.css">
+    <link rel="stylesheet" href="carasol/owl.carousel.min.css">
+    <link href="css/public_se.css" rel="stylesheet">
+
+    <title>一番賞</title>
+</head>
+<style>
+    .test {
+        height: 80px;
+    }
+
+    .footer_border {
+        border: 2px #efefef solid;
+        border-radius: 10px;
+    }
+
+    .f-links {
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+        color: #fff;
+        margin-top: 10px;
+    }
+
+    .nav-link:hover {
+        text-decoration: underline;
+    }
+
+    .a-none {
+        text-decoration: none;
+    }
+
+    .card-box-shadow {
+        box-shadow: 0px 4px 24px #15161e;
+        border: 0;
+    }
+
+    .card-item {
+        text-decoration: none;
+        overflow: hidden;
+    }
+
+    .blur-box {
+        backdrop-filter: blur(3px);
+        /* 模糊背景 */
+        -webkit-backdrop-filter: blur(3px);
+        /* Safari 支援 */
+    }
+
+    .neu-outset {
+        background: #e0e0e0;
+        box-shadow: 6px 6px 12px #bebebe,
+            -6px -6px 12px #ffffff;
+    }
+
+    .price {
+        color: #ffeb3b;
+        font-size: 15px;
+        background-color: #37474f;
+        padding: 4px 0;
+        border-radius: 4px;
+        text-align: center;
+    }
+
+    .delivery {
+        color: #1de9b6;
+        font-size: 15px;
+        background-color: #37474f;
+        padding: 4px 0;
+        border-radius: 4px;
+        text-align: center;
+    }
+
+    .is_all_claimed {
+        background-image: linear-gradient(to right, rgba(63, 173, 168, 0.85), rgba(128, 128, 128, 0.9));
+        padding: 4px 8px;
+        border-radius: 4px;
+    }
+
+    .is_some_lottery {
+        background-image: radial-gradient(circle 597px at 93% 9.8%, rgba(255, 61, 89, 0.9) 1.7%, rgba(252, 251, 44, 0.9) 97%);
+        padding: 4px 8px;
+        border-radius: 4px;
+    }
+
+    .float_tag {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        font-weight: bold;
+        z-index: 1;
+    }
+
+    .character {
+        position: absolute;
+        left: 4px;
+        bottom: 4px;
+    }
+
+    .relative {
+        position: relative;
+    }
+
+    .ab {
+        position: absolute;
+    }
+
+    /*屬性*/
+    .character-element {
+        color: #fff !important;
+        padding: 1px 3px;
+        border-radius: 2px;
+        font-size: 13px;
+    }
+
+    .character-element[data-id="0"] {
+        background-color: #828282 !important;
+        border-color: #828282;
+    }
+
+    .character-element[data-id="1"] {
+        background-color: #ef2929 !important;
+        border-color: #ef2929;
+    }
+
+    .character-element[data-id="2"] {
+        background-color: #3a90cb !important;
+        border-color: #3a90cb;
+    }
+
+    /*族類*/
+    .character-race[data-id="9"] {
+        color: #fff;
+        background: linear-gradient(0deg, rgb(54, 54, 54) 0%, rgb(54, 54, 54) 10%, rgb(108, 108, 108) 10%, rgb(108, 108, 108) 100%) !important;
+        border-color: #6c6c6c;
+    }
+
+    .character-race[data-id="2"] {
+        background-color: #146825 !important;
+        border-color: #146825;
+    }
+
+    .character-race[data-id="1"] {
+        background-color: #828282 !important;
+        border-color: #828282;
+    }
+
+    .character-race {
+        color: #fff !important;
+        padding: 1px 3px;
+        border-radius: 2px;
+        font-size: 13px;
+    }
+
+    .font-18 {
+        font-size: 18px;
+    }
+
+    .btn-line {
+        background-color: #00c300;
+        color: #FFF
+    }
+
+    .btn-line:hover {
+        background-color: #FFF;
+        color: #00c300
+    }
+
+    .btn-fb {
+        background-color: #0d6efd;
+        color: #FFF
+    }
+
+    .btn-fb:hover {
+        background-color: #FFF;
+        color: #0d6efd
+    }
+
+    .bg-img-1 {
+        background-image: url('img/night2.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+
+    /*特效*/
+    .square {
+        width: 50px;
+        /* 初始宽度 */
+        height: 50px;
+        /* 初始高度 */
+        background-color: rgba(52, 152, 219, 0.5);
+        /* 初始背景颜色 */
+        transition: width 0.4s, height 0.4s;
+        /* 过渡宽度和高度的动画效果，持续时间为1秒 */
+        transform-origin: bottom right;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+
+    .square2 {
+        width: 50px;
+        height: 50px;
+        /*方塊的標誌與背景色*/
+        background: url(img/plus.png) no-repeat center center #0ba29b;
+        background-size: 18px auto;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+
+    }
+
+    a:hover .square2 {
+
+        animation: moveBox 0.4s ease-in-out forwards;
+    }
+
+    /*transform bottom  right這些定位，可能要依圖片大小設定有所不同*/
+    @keyframes moveBox {
+        to {
+            transform: translate(50%, 50%);
+            bottom: 50%;
+            right: 50%;
+            border-radius: 50%;
+            /*圓形的外圈顏色*/
+            border: solid rgb(102, 158, 135) 5px;
+        }
+    }
+
+    a:hover .square {
+        width: 100%;
+        /* 悬停时的宽度 */
+        height: 100%;
+        /* 悬停时的高度 */
+    }
+
+    .s90_text {
+        /*background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));*/
+        background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.3));
+        padding-right: 20px;
+        padding-left: 20px;
+        padding-top: 20px;
+        color: white;
+    }
+
+    /*跑馬燈*/
+    .marquee-simple {
+        overflow: hidden;
+        white-space: nowrap;
+        width: 100%;
+        box-sizing: border-box;
+        /*border: 1px solid #ddd;*/
+        padding: 8px 12px;
+        /*background: #fff;*/
+        color: #fff;
+    }
+
+    .marquee-inner {
+        display: inline-block;
+        padding-left: 100%;
+        /* 文字從容器右側開始 */
+        animation: marquee-simple 30s linear infinite;
+    }
+
+    /* 向左移動 */
+    @keyframes marquee-simple {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
+
+        /* 移動一個自身寬度 */
+    }
+</style>
+
+<body class="bg-dark ">
+
+
+    <!--功能列start-->
+    <section id="menu" style="height: 100px;">
+        <nav class="navbar  navbar-expand-lg  container fixed-top "><!--透明模糊 blur-box -->
+            <a class="navbar-brand" href="#"><img class="img-fluid mb-3 test" src="img/logo01.png" alt="">
+            </a>
+            <button class="navbar-toggler " style="color:white;background: rgba(0,0,0,0.5); margin-right: 3%;"
+                type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg"
+                aria-controls="navbarOffcanvasLg" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="offcanvas offcanvas-end  text-bg-dark" tabindex="-1" id="navbarOffcanvasLg"
+                aria-labelledby="navbarOffcanvasLgLabel">
+                <div class="offcanvas-header">
+                    <h2 class="offcanvas-title" id="offcanvasNavbarLabel">選單</h2>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body justify-content-end">
+                    <div class="row ">
+                        <div class="col-lg-12 ">
+                            <ul class="navbar-nav  justify-content-end flex-grow-1 pe-3">
+                                <li class="nav-item  ">
+                                    <a class="nav-link text-light" href="turn.html" title="登入" target=""
+                                        rel="noopener noreferrer">
+                                        <i class="fa-solid fa-right-to-bracket"></i>登入
+
+                                    </a>
+                                </li>
+                                <li class="nav-item  ">
+                                    <a class="nav-link text-light" href="turn.html" title="註冊" target=""
+                                        rel="noopener noreferrer">
+                                        <i class="fa-solid fa-user-plus"></i>註冊
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="col-lg-12">
+                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                <li class="nav-item  ">
+                                    <a class="nav-link text-light" href="turn.html" title="海賊王" target=""
+                                        rel="noopener noreferrer">
+                                        海賊王
+                                    </a>
+                                </li>
+                                <li class="nav-item  ">
+                                    <a class="nav-link text-light" href="turn.html" title="妖精尾巴" target=""
+                                        rel="noopener noreferrer">
+                                        妖精尾巴
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link text-light" href="turn.html" title="我的英雄學院" target=""
+                                        rel="noopener noreferrer">
+                                        我的英雄學院
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </nav>
+    </section>
+    <!--功能列end-->
+    <section id="detail" class="container">
+        <div class="row my-1 px-lg-5">
+            <!-- 顯示主圖片 -->
+            <div class="col-xl-6 col-lg-5 col-md-5 text-center">
+                <!--第一張圖-->
+                <div class="col-md-12 mb-3">
+                    <img class="img-fluid w-100 img-thumbnail zoom_all" src="https://want1yo.com/storage//lottery/cover_photo/5684fe4271b7bd191381752f327021e2.jpg"
+                        data-zoom-image="https://want1yo.com/storage//lottery/cover_photo/5684fe4271b7bd191381752f327021e2.jpg" alt="圖檔名稱：1" id="prod_detail_image_main"><br>
+                </div>
+
+                
+            </div>
+            <div class="col-md-6 my-1 text-light">
+                <h2>七龍珠蒐藏系列251 - 暴擊降價中</h2>
+                <p>暴力熊 超四悟吉塔 大比例</p>
+                <p>超四時空巡警 悟空 1:4</p>
+                <p>超四時空巡警 貝吉塔 1:4</p>
+                <p>超四時空巡警 悟空 1:6</p>
+                <div class="row">
+                    <div class="col-6 py-2 px-3 pe-1 g-0 " title="價格">
+                        <div class="product-badge price py-2 px-3 rounded-2">
+                            <div class="fs-5 fw-light ">
+                                一抽
+                            </div>
+                            <div class="fs-3 ">
+                                <i class="fa-solid fa-coins me-2 "></i>
+                                <span class="fs-4 text-decoration-line-through text-secondary">
+                                    200
+                                </span>
+                                <span class="fs-3 fw-bold ">
+                                    145
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 py-2 px-3 pe-1 g-0 " title="總數">
+                        <div class="product-badge delivery py-2 px-3 rounded-2">
+                            <div class="fs-5 fw-light">
+                                總數
+                            </div>
+                            <div class="fs-3">
+                                <i class="fa-solid fa-tags me-2"></i>
+                                <span class="">
+                                    427/600
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="btn btn-danger">
+                            <i class="fa-solid fa-shop me-1 text-light"></i>強棒出擊
+                        </div>
+                        <div class="btn btn-danger ms-3">
+                            <i class="fa-solid fa-shop me-1 text-light"></i>運送日>7
+                        </div>
+                        <div class="btn btn-danger ms-3">
+                            <i class="fa-solid fa-shop me-1 text-light"></i>運送日>7
+                        </div>
+                        <div class="btn btn-danger ms-3">
+                            <i class="fa-solid fa-shop me-1 text-light"></i>運送日>7
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <!-- 顯示所有圖片(小) -->
+                <div class="carousel-wrapper d-none d-lg-block">
+                    <div class="image-carousel-container">
+                        <div class="image-carousel" style="transform: translateX(0px);">
+                            <div class="image-slide">
+                                <div class="image-container">
+                                    <img class="img-fluid img-thumbnail" src="https://want1yo.com/storage//lottery/cover_photo/5684fe4271b7bd191381752f327021e2.jpg" alt="圖檔名稱：1"
+                                        onclick="updateMainImage(this);" style="cursor: pointer;">
+                                </div>
+                            </div>
+                            <div class="image-slide">
+                                <div class="image-container">
+                                    <img class="img-fluid img-thumbnail" src="https://want1yo.com/storage//lottery/imgs/7d6e9216b5a139563aa0cf2451145458.jpg" alt="圖檔名稱：1"
+                                        onclick="updateMainImage(this);" style="cursor: pointer;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" onclick="prevSlide()">❮</button>
+                    <button class="carousel-control-next" onclick="nextSlide()">❯</button>
+                </div>
+
+    </section>
+    <section class="container mt-3">
+        <div class="row border-bottom">
+            <div class="col-lg-2">
+                <img src="https://want1yo.com/storage//lottery/imgs/7d6e9216b5a139563aa0cf2451145458.jpg" class="img-fluid" style="height: 150px;">
+            </div>
+            <div class="col-lg-10 text-light" style="font-size:25px;">
+                <div class="row ">
+                    暴力熊 超四悟吉塔 大比例 高配
+                    <div class="row g-0">
+                        <div class="col-4 d-flex justify-content-start align-items-center">
+                            <span>
+                                <i class="fa-solid fa-award me-2"></i>
+                            </span>
+                            <span>
+                                A賞
+                            </span>
+                        </div>
+                        <div class="col-4 d-flex justify-content-start align-items-center">
+                            <span>
+                                <i class="fa-solid fa-coins me-2"></i>
+                            </span>
+                            <span>
+                                9,500
+                            </span>
+                        </div>
+                        <div class="col-4 d-flex justify-content-end align-items-center">
+                            <span>
+                                <i class="fa-solid fa-tags me-2"></i>
+                            </span>
+                            <span>
+                                0/1
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row border-bottom">
+            <div class="col-lg-2">
+                <img src="https://want1yo.com/storage//lottery/cover_photo/5684fe4271b7bd191381752f327021e2.jpg" alt="" class="img-fluid" style="height: 150px;">
+            </div>
+            <div class="col-lg-10 text-light" style="font-size:25px;">
+                <div class="row ">
+                    暴力熊 超四悟吉塔 大比例 高配
+                    <div class="row g-0">
+                        <div class="col-4 d-flex justify-content-start align-items-center">
+                            <span>
+                                <i class="fa-solid fa-award me-2"></i>
+                            </span>
+                            <span>
+                                B賞
+                            </span>
+                        </div>
+                        <div class="col-4 d-flex justify-content-start align-items-center">
+                            <span>
+                                <i class="fa-solid fa-coins me-2"></i>
+                            </span>
+                            <span>
+                                9,500
+                            </span>
+                        </div>
+                        <div class="col-4 d-flex justify-content-end align-items-center">
+                            <span>
+                                <i class="fa-solid fa-tags me-2"></i>
+                            </span>
+                            <span>
+                                0/1
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+ 
+    <section class="container mt-3">
+        <a href="javascript:void(0)" class="btn btn-primary" onclick="show()">一抽入魂</a>
+    </section>
+
+
+    <section id="contact" class="text-light mt-3">
+        <div class="container bg-img-1">
+            <div class="row ">
+
+                <div class="col-lg-4 mt-5">
+                    <div class="s90_text">
+                        <h2>萬事屋有限公司</h2>
+                        <p>統編：9487943</p>
+                        <p>客服：週一至五 10:00~18:00 國定假日休息</p>
+                        <p>
+                            <i class="bi bi-telephone-inbound-fill mr-2"></i>
+                            04-4499888
+                        </p>
+                        <p>
+                            <i class="bi bi-envelope"></i>
+                            hentai@gmail.com
+                        </p>
+                        <p>
+                            <i class="bi bi-geo-alt-fill"></i>
+                            台中市西區民族路45號
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-sm-6 font-18 mt-5">
+                    <div>
+                        <i class="bi bi-facebook btn-fb"></i>
+                        <a href="" class="a-none text-light">臉書</a>
+                    </div>
+
+                    <img src="https://quickchart.io/qr?text=https://www.tcbbank.com.tw/&size=180" alt="">
+                </div>
+
+                <div class="col-lg-4 col-sm-6 font-18 mt-5">
+                    <div>
+                        <i class="bi bi-line btn-line"></i>
+                        <a href="" class="a-none text-light">LINE官方</a>
+                    </div>
+                    <img src="https://quickchart.io/qr?text=https://www.tcbbank.com.tw/&size=180" alt="">
+                </div>
+
+            </div>
+        </div>
+
+
+        </div>
+
+        </div>
+
+
+    </section>
+
+    <script src="js/bootstrap5.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="carasol/owl.carousel.min.js"></script>
+    <script src="js/jquery.elevatezoom.min.js"></script><!--局部放大套件-->
+    <script>
+        $(window).on('load', function () {
+            $('.owltActivey').owlCarousel({
+                loop: false,
+                margin: 10,
+                nav: false,
+                dots: true,
+                autoplay: false,
+                autoplayTimeout: 2000,
+                autoplayHoverPause: false,
+                autoHeight: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3
+                    }
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            // 初始化顯示第一組圖片
+            showSlide(currentIndex);
+            $(".subTypeButton").click(function () {
+                $(this).parent().find(".subTypeUl").toggleClass("d-none");
+            });
+
+            $(".titleHover").hover(function () {
+                updateMainImage2($(this).data("img"))
+            });
+
+        });
+        function updateMainImage(imgElement) {
+            var mainImage = document.getElementById('prod_detail_image_main');
+            mainImage.src = imgElement.src;
+            // 更換放大圖片來源
+            $('#prod_detail_image_main').data('zoom-image', imgElement.src);
+            $('#prod_detail_image_main').elevateZoom('swapImage', imgElement.src, imgElement.src);
+            // 移除原本放大圖片div
+            $('.zoomContainer').remove();
+            // 初始化
+            $(".zoom_all").elevateZoom({
+                zoomType: "window", // 放大类型，可以是 "lens", "inner", "window"
+                lensShape: "square", // 放大镜形状，可以是 "round" 或 "square"
+                lensSize: 100, // 放大镜尺寸
+                borderSize: 1, // 放大镜边框的大小
+                borderColour: "#888", // 放大镜边框的颜色
+                zoomWindowWidth: 250, // 放大窗口的宽度 (仅在 window 模式下使用)
+                zoomWindowHeight: 250, // 放大窗口的高度 (仅在 window 模式下使用)
+                scrollZoom: true // 允许滚轮缩放
+            });
+        }
+
+        function updateMainImage2(imgElement) {
+            var mainImage = document.getElementById('prod_detail_image_main');
+            mainImage.src = imgElement;
+            // 更換放大圖片來源
+            $('#prod_detail_image_main').data('zoom-image', imgElement.src);
+            $('#prod_detail_image_main').elevateZoom('swapImage', imgElement.src, imgElement.src);
+            // 移除原本放大圖片div
+            $('.zoomContainer').remove();
+            // 初始化
+            $(".zoom_all").elevateZoom({
+                zoomType: "window", // 放大类型，可以是 "lens", "inner", "window"
+                lensShape: "square", // 放大镜形状，可以是 "round" 或 "square"
+                lensSize: 100, // 放大镜尺寸
+                borderSize: 1, // 放大镜边框的大小
+                borderColour: "#888", // 放大镜边框的颜色
+                zoomWindowWidth: 250, // 放大窗口的宽度 (仅在 window 模式下使用)
+                zoomWindowHeight: 250, // 放大窗口的高度 (仅在 window 模式下使用)
+                scrollZoom: true // 允许滚轮缩放
+            });
+        }
+
+        let currentIndex = 0;
+
+        function showSlide(index) {
+
+            const slides = document.querySelectorAll('.image-slide');
+            const totalSlides = slides.length;
+            const visibleSlides = Math.floor(document.querySelector('.image-carousel-container').offsetWidth / (80 + 10)); // 計算可見圖片數量
+            currentIndex = 0;
+            if (index > totalSlides - 1) {
+                // 當前索引超過最大允許值時，設置為最大可顯示索引
+                currentIndex = totalSlides - 1;
+            } else if (index < 0) {
+                // 當前索引小於最小允許值時，設置為最小可顯示索引
+                currentIndex = 0;
+            } else {
+                // 設置當前索引
+                currentIndex = index;
+            }
+            const slideWidth = 80; // 圖片寬度
+            const slideMargin = 10; // 圖片間距
+            const offset = -currentIndex * (slideWidth + slideMargin); // 計算偏移量
+            document.querySelector('.image-carousel').style.transform = `translateX(${offset}px)`;
+
+            // 更新主圖片
+            updateMainImage(slides[currentIndex].querySelector('img'));
+        }
+
+        function nextSlide() {
+            console.log(currentIndex + 1)
+            showSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentIndex - 1);
+        }
+
+        function random(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+        function show() {
+            
+            var num = random(0, 10- 1);
+            var list=["A賞","B賞","C賞","D賞","E賞","E賞","E賞","E賞","E賞"];
+            alert(list[num]);
+        }
+        
+    </script>
+
+</body>
+
+</html>
